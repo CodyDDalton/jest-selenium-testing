@@ -1,7 +1,7 @@
 require('chromedriver');
 const { Builder, By, Key, until } = require('selenium-webdriver')
 
-describe('', () => {
+describe('Jest and Selenium Testing', () => {
   let driver;
 
   beforeAll(async () => {
@@ -17,7 +17,7 @@ describe('', () => {
     await driver.sleep(1000);
   };
 
-  test("", async () => {
+  test("As a user I want to navigate to the Home page and check that the title is Home", async () => {
     await driver.get("http://localhost:3000");
     await driver.getTitle().then((title) => {
       expect(title).toEqual('Home');
@@ -25,7 +25,7 @@ describe('', () => {
     setDelay();
   });
 
-  test("", async () => {
+  test("As a user I want to navigate to the Contact page and check that the title is Contact Us", async () => {
     await driver.get("http://localhost:3000/contact");
     await driver.getTitle().then((title) => {
       expect(title).toEqual('Contact Us');
@@ -33,7 +33,7 @@ describe('', () => {
     setDelay();
   });
 
-  test("", async () => {
+  test("As a user I want to input an email, click to submit, and the message should say More Info Coming To + the entered email", async () => {
     await driver.get("http://localhost:3000/contact");
     let element = await driver.findElement(By.id("formInput"));
     await element.sendKeys('happyvariables@yahoo.com', Key.TAB);
